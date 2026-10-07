@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NetWatch-TAK</string>
+    <string name="app_desc">Show your NetWatch Find My tags on the ATAK map.</string>
+
+    <string name="setup_title">Connect to NetWatch</string>
+    <string name="setup_blurb">NetWatch runs on your computer. Switch on
+        <b>ATAK bridge</b> there, then connect this tablet to it.</string>
+    <string name="setup_find">Find on my network</string>
+    <string name="setup_paste">Paste pairing link</string>
+    <string name="setup_manual">Enter the address myself</string>
+
+    <string name="hint_host">Computer address, e.g. 192.168.1.42</string>
+    <string name="hint_port">Port</string>
+    <string name="hint_code">Pair code</string>
+    <string name="hint_link">netwatch://pair?h=…</string>
+
+    <string name="vpn_note">On a VPN such as Tailscale or WireGuard, "Find on my
+        network" will not see anything — there is no broadcast on a VPN. Paste the
+        pairing link instead.</string>
+
+    <string name="cot_off">Do not share</string>
+    <string name="cot_local">This device only</string>
+    <string name="cot_external">Share with my TAK team</string>
+
+    <string name="safety_note">Tags are located through Apple\'s Find My network.
+        A position is where a passing iPhone last heard the tag, not live GPS, so
+        it can be minutes or hours old. Use these on property you own.</string>
+</resources>

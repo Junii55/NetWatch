@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The NetWatch bridge speaks plain HTTP on a local network or a VPN, so cleartext
+  has to be permitted or Android 9+ blocks the connection outright.
+
+  Why not HTTPS: the bridge is a desktop app on someone's own LAN with no
+  hostname and no certificate authority willing to issue for 192.168.x.x. A
+  self-signed certificate would mean shipping a trust anchor or teaching every
+  customer to install one, which is worse security theatre than being clear that
+  this is a local-network protocol. The traffic is tag positions behind a pair
+  code; the README says plainly that it belongs on a LAN or a VPN and must not be
+  port-forwarded.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

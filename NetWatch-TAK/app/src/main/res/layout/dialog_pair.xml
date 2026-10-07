@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/nw_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="In NetWatch on your computer, open ATAK bridge and switch it on. It shows an address, a port and a pair code."
+            android:textColor="@color/nw_muted"
+            android:textSize="12sp"
+            android:paddingBottom="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pairing link"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Easiest: copy the link from NetWatch and paste it here. It fills in everything below."
+            android:textColor="@color/nw_muted"
+            android:textSize="11sp"
+            android:paddingBottom="4dp" />
+
+        <EditText
+            android:id="@+id/pair_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_link"
+            android:textColor="@color/white"
+            android:textColorHint="@color/nw_muted"
+            android:textSize="13sp"
+            android:inputType="textUri"
+            android:importantForAutofill="no" />
+
+        <Button
+            android:id="@+id/pair_apply_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Use this link"
+            style="@style/darkButton" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="— or type it in —"
+            android:textColor="@color/nw_muted"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:paddingTop="12dp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Computer address"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/pair_host"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/hint_host"
+                android:textColor="@color/white"
+                android:textColorHint="@color/nw_muted"
+                android:textSize="13sp"
+                android:inputType="textUri"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/pair_port"
+                android:layout_width="78dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_port"
+                android:textColor="@color/white"
+                android:textColorHint="@color/nw_muted"
+                android:textSize="13sp"
+                android:inputType="number"
+                android:importantForAutofill="no" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pair code"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:paddingTop="10dp" />
+
+        <EditText
+            android:id="@+id/pair_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_code"
+            android:textColor="@color/white"
+            android:textColorHint="@color/nw_muted"
+            android:textSize="15sp"
+            android:inputType="textCapCharacters|textNoSuggestions"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name (optional)"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:paddingTop="10dp" />
+
+        <EditText
+            android:id="@+id/pair_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Workshop PC"
+            android:textColor="@color/white"
+            android:textColorHint="@color/nw_muted"
+            android:textSize="13sp"
+            android:inputType="text"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/pair_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/nw_warn"
+            android:textSize="12sp"
+            android:paddingTop="10dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vpn_note"
+            android:textColor="@color/nw_muted"
+            android:textSize="11sp"
+            android:paddingTop="12dp" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/nw_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- what to draw -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="On the map"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:paddingBottom="2dp" />
+
+        <CheckBox
+            android:id="@+id/opt_markers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show tag positions"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <CheckBox
+            android:id="@+id/opt_tracks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show breadcrumb trails"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <CheckBox
+            android:id="@+id/opt_respect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Follow each tag\'s own trail setting from NetWatch"
+            android:textColor="@color/nw_muted"
+            android:textSize="12sp"
+            android:paddingStart="24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Marker icon"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:paddingTop="10dp" />
+
+        <com.atakmap.android.gui.PluginSpinner
+            android:id="@+id/opt_icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- trail window -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trail dates"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:paddingTop="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Limit trails to a date range. Leave both as Any for everything NetWatch has."
+            android:textColor="@color/nw_muted"
+            android:textSize="11sp"
+            android:paddingBottom="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/opt_from"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="From: Any"
+                style="@style/darkButton" />
+
+            <Button
+                android:id="@+id/opt_to"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="To: Any"
+                style="@style/darkButton" />
+
+            <Button
+                android:id="@+id/opt_dates_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="64dp"
+                android:text="Clear"
+                style="@style/darkButton" />
+        </LinearLayout>
+
+        <!-- refresh -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Refreshing"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:paddingTop="16dp" />
+
+        <CheckBox
+            android:id="@+id/opt_auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Refresh automatically"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <com.atakmap.android.gui.PluginSpinner
+            android:id="@+id/opt_interval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Refresh reads what NetWatch already has, which is cheap. &quot;Sync now&quot; asks Apple for new reports and is rate-limited to once a minute."
+            android:textColor="@color/nw_muted"
+            android:textSize="11sp"
+            android:paddingTop="4dp" />
+
+        <!-- CoT -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sharing"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:paddingTop="16dp" />
+
+        <com.atakmap.android.gui.PluginSpinner
+            android:id="@+id/opt_cot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/opt_cot_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sharing sends each tag as a Cursor on Target event over whatever TAK Server or mesh this ATAK is already connected to. Everyone on it will see your tags."
+            android:textColor="@color/nw_muted"
+            android:textSize="11sp"
+            android:paddingTop="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/safety_note"
+            android:textColor="@color/nw_muted"
+            android:textSize="11sp"
+            android:paddingTop="16dp" />
+    </LinearLayout>
+</ScrollView>

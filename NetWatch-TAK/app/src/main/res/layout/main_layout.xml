@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/nw_bg"
+    android:padding="8dp">
+
+    <!-- title row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/nw_dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/nw_muted"
+            android:paddingEnd="6dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/nw_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:minWidth="64dp"
+            android:text="Options"
+            style="@style/darkButton" />
+
+        <Button
+            android:id="@+id/nw_full"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:minWidth="80dp"
+            android:text="Expand"
+            style="@style/darkButton" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/nw_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/nw_muted"
+        android:textSize="12sp"
+        android:paddingTop="2dp"
+        android:paddingBottom="6dp"
+        android:text="Not connected" />
+
+    <!-- shown until a NetWatch server has been paired -->
+    <LinearLayout
+        android:id="@+id/nw_setup_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/nw_surface"
+        android:padding="12dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_title"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_blurb"
+            android:textColor="@color/nw_muted"
+            android:textSize="12sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="10dp" />
+
+        <Button
+            android:id="@+id/nw_discover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setup_find"
+            style="@style/darkButton" />
+
+        <Button
+            android:id="@+id/nw_paste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/setup_paste"
+            style="@style/darkButton" />
+
+        <Button
+            android:id="@+id/nw_manual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/setup_manual"
+            style="@style/darkButton" />
+    </LinearLayout>
+
+    <!-- server picker, shown once at least one is paired -->
+    <LinearLayout
+        android:id="@+id/nw_server_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="4dp"
+        android:visibility="gone">
+
+        <com.atakmap.android.gui.PluginSpinner
+            android:id="@+id/nw_server"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/nw_servers_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:minWidth="64dp"
+            android:text="Edit"
+            style="@style/darkButton" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/nw_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/nw_bg"
+        android:dividerHeight="3dp" />
+
+    <TextView
+        android:id="@+id/nw_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/nw_muted"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:visibility="gone"
+        android:text="No tags yet" />
+
+    <LinearLayout
+        android:id="@+id/nw_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="6dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/nw_refresh"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Refresh"
+            style="@style/darkButton" />
+
+        <Button
+            android:id="@+id/nw_sync"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sync now"
+            style="@style/darkButton" />
+
+        <Button
+            android:id="@+id/nw_center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Centre all"
+            style="@style/darkButton" />
+    </LinearLayout>
+</LinearLayout>

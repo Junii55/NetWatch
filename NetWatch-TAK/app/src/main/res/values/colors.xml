@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="darker_gray">#121212</color>
+    <color name="nw_bg">#0b0d10</color>
+    <color name="nw_surface">#14181d</color>
+    <color name="nw_surface_hi">#1c2127</color>
+    <color name="nw_muted">#8b949e</color>
+    <color name="nw_accent">#2dd4bf</color>
+    <color name="nw_warn">#fbbf24</color>
+    <color name="nw_bad">#f87171</color>
+    <color name="nw_ok">#4ade80</color>
+</resources>

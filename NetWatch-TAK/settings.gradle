@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+include ':app'
+
+// The TAK third-party pipeline names every APK it builds after the root
+// project, so this is also the product name the operator sees in ATAK's plugin
+// list: ATAK-Plugin-NetWatch-TAK-<version>-<atak>-civ-release.apk
+rootProject.name = 'NetWatch-TAK'

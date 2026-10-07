@@ -1,0 +1,107 @@
+NetWatch-TAK 1.0.2 - submitting to the TAK third-party pipeline
+===============================================================
+
+1. Go to https://tak.gov/user_builds
+2. Upload NetWatch-TAK-1.0.2-source.zip
+3. Accept the Third Party Pipeline terms
+4. Collect ATAK-Plugin-NetWatch-TAK-1.0.2-5.6.0-civ-release.apk
+5. Install it on the tablet. Unload the previous NetWatch-TAK first.
+
+History, so the pipeline runs are easy to line up:
+
+  1.0.0  built clean, Fortify 0. Worked over a VPN, tags on the map. Crashed
+         ATAK on any dropdown, and forgot the paired PC on every restart.
+  1.0.1  both fixed - PluginSpinner for the dropdowns, ATAK's context for
+         preferences.
+  1.0.2  Shrink used the landscape shape in portrait; status dot glyph was
+         double-encoded. Both fixed.
+
+versionCode is 3.
+
+The APK is signed by the third-party signing service, so ATAK shows a visual
+indicator that it was not built by the TAK Product Center. That is expected.
+
+
+Why the archive should pass
+---------------------------
+Each requirement, and where it is met. Verified against the build output of the
+HAYWATCH 1.1.6 submission of 2026-09-18, which succeeded with 0 Fortify findings.
+
+  Single root folder                 NetWatch-TAK/ - and the pipeline names every
+                                     APK after it, hence the product name.
+
+  Gradle is the build system         gradlew, gradlew.bat, gradle/wrapper and
+                                     settings.gradle all at the root folder.
+                                     Gradle 8.14.3, matching what the pipeline
+                                     downloaded on the last run.
+
+  assembleCivRelease defined         Product flavours civ (default) and mil
+                                     against build type release. The previous
+                                     run executed :app:assembleCivRelease and
+                                     :app:bundleCivRelease.
+
+  atak-gradle-takdev used for the    app/build.gradle buildscript, version 3.+,
+  SDK                                as in the 5.6.0 plugintemplate.
+
+                                     NOTE: the published requirement says 2.+ for
+                                     ATAK 4.2 and later. That text predates the
+                                     3.x line, and 3.+ is what the current
+                                     template ships and what built successfully
+                                     last time. If the pipeline ever rejects it,
+                                     change takdevVersion in app/build.gradle to
+                                     '2.+' and resubmit. Nothing else depends on
+                                     it.
+
+  -repackageclasses is specific      Generated in afterEvaluate as
+                                     atakplugin.NetWatchTAK.
+
+                                     The hyphen in the root project name is
+                                     stripped first, because a hyphen is not
+                                     legal in a Java package name and proguard
+                                     rejects "atakplugin.NetWatch-TAK".
+
+  AndroidManifest activity entry     Present verbatim, with
+                                     android:exported="true".
+
+  NDK                                Not declared, and no native code exists.
+                                     The last build logged "CI variable not set.
+                                     Skipping NDK installation." and reported
+                                     mergeCivReleaseNativeLibs NO-SOURCE, so
+                                     there is nothing for the preinstalled-NDK
+                                     restriction to apply to.
+
+
+Expected warnings, all benign
+-----------------------------
+These appeared in the HAYWATCH run too and did not stop the build:
+
+  - "Failed to resolve remote javadoc for milDebug / milRelease. Trying
+    fallback."  The mil flavour has no SDK in this repository. Only civRelease is
+    built, so it does not matter. The flavour is kept because the official
+    template has it.
+
+  - "Using flatDir should be avoided."  Emitted by the takdev plugin's own
+    .takdev/aars handling, not by anything in this project.
+
+  - "Some input files use or override a deprecated API."  Android's
+    getResources().getColor(int) and Drawable handling, used the same way the
+    plugin template uses them.
+
+  - "Deprecated Gradle features were used ... incompatible with Gradle 9.0."
+    From the AGP and takdev plugins.
+
+  - OWASP dependency-check "Could not connect to Central search."  A pipeline
+    network condition, not a project problem.
+
+
+Third-party code
+----------------
+None. No library dependencies beyond the ATAK SDK and the Android platform;
+app/build.gradle has an empty dependencies block. HTTP is java.net
+HttpURLConnection and JSON is org.json, both from the platform. Nothing is
+vendored, so there is no third-party source in this archive and nothing for the
+dependency scanner to flag.
+
+Everything in this archive is original work apart from files taken from the
+plugintemplate: the Gradle wrapper, proguard-gradle.txt, and the button and theme
+resources.

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Toolbar mark: a tag at the centre of three expanding rings - the beacon being
+  heard by passing phones. Teal to match the NetWatch desktop app so the two read
+  as one product.
+
+  Vector rather than PNG so it stays sharp at every tablet density and adds no
+  weight to the APK. Circles are written as two half arcs, which is the form
+  Android's path parser renders reliably; a single arc back to its own start point
+  is ambiguous and can come out empty.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- outer ring, r=18 -->
+    <path
+        android:strokeColor="#1f6f66"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M6,24 a18,18 0 1,0 36,0 a18,18 0 1,0 -36,0" />
+
+    <!-- middle ring, r=12 -->
+    <path
+        android:strokeColor="#25a195"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M12,24 a12,12 0 1,0 24,0 a12,12 0 1,0 -24,0" />
+
+    <!-- inner ring, r=6 -->
+    <path
+        android:strokeColor="#2dd4bf"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M18,24 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0" />
+
+    <!-- the tag itself, r=3 -->
+    <path
+        android:fillColor="#2dd4bf"
+        android:pathData="M21,24 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" />
+
+    <!-- crosshair ticks -->
+    <path android:fillColor="#2dd4bf" android:pathData="M23,1 h2 v5 h-2 z" />
+    <path android:fillColor="#2dd4bf" android:pathData="M23,42 h2 v5 h-2 z" />
+    <path android:fillColor="#2dd4bf" android:pathData="M1,23 h5 v2 h-5 z" />
+    <path android:fillColor="#2dd4bf" android:pathData="M42,23 h5 v2 h-5 z" />
+</vector>
