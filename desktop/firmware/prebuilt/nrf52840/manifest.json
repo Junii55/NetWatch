@@ -1,0 +1,15 @@
+﻿{
+    "built_at":  "2026-10-06T12:27:06.4240241Z",
+    "baud":  115200,
+    "fqbn":  "Seeeduino:nrf52:xiaonRF52840Sense",
+    "method":  "dfu",
+    "parts":  [
+                  {
+                      "offset":  "dfu",
+                      "path":  "firmware.hex",
+                      "inject_key":  true
+                  }
+              ],
+    "dev_type":  "0x0052",
+    "chip":  "nrf52840"
+}

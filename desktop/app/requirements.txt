@@ -1,0 +1,8 @@
+# NetWatch Desktop runtime dependencies.
+findmy>=0.10,<0.11        # Apple auth + Find My report fetch/decrypt
+anisette>=1.2,<2          # in-process anisette (replaces the Docker anisette server)
+esptool>=5.0,<6           # ESP32 chip detection + flashing
+adafruit-nrfutil>=0.5.3   # nRF52840 serial DFU (driven via its Python API)
+pyserial>=3.5,<4          # serial port enumeration
+cryptography>=42,<46      # AES-GCM for the non-Windows secret store
+pywebview>=5.0,<6         # native app window (WebView2 on Windows)

@@ -1,0 +1,24 @@
+﻿{
+    "chip":  "esp32s3",
+    "flash_mode":  "dio",
+    "flash_freq":  "80m",
+    "parts":  [
+                  {
+                      "offset":  "0x0",
+                      "path":  "bootloader.bin"
+                  },
+                  {
+                      "offset":  "0x8000",
+                      "path":  "partitions.bin"
+                  },
+                  {
+                      "offset":  "0x10000",
+                      "path":  "firmware.bin",
+                      "inject_key":  true
+                  }
+              ],
+    "built_at":  "2026-10-02T16:50:23.5099736Z",
+    "flash_size":  "4MB",
+    "baud":  460800,
+    "low_power":  true
+}

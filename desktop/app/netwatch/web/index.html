@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NetWatch</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body data-token="__NETWATCH_TOKEN__">
+
+<!-- ───────────────────────── first-run ownership gate ───────────────────── -->
+<div id="attest" class="gate hidden">
+  <div class="gate-card">
+    <div class="brand big"><span class="mark"></span><span class="wordmark">Net<b>Watch</b></span></div>
+    <h1>Before you start</h1>
+    <p>NetWatch builds Bluetooth tags that you locate through Apple's Find My network. It is
+       for finding <strong>your own belongings</strong> — luggage, a bike, a toolbox, a backpack.</p>
+    <ul class="gate-list">
+      <li>A NetWatch tag is <strong>not</strong> an AirTag. It will not appear in Find My&nbsp;&rsaquo;&nbsp;Items,
+          and it does <strong>not</strong> trigger Apple's unwanted-tracking alerts.</li>
+      <li>Because of that, a person carrying one is unlikely to be warned. Placing a tag on
+          another person, their vehicle, or their property is <strong>illegal in many places</strong>.</li>
+      <li>Your Apple sign-in and all tag keys stay on this computer. Nothing is uploaded to us.</li>
+    </ul>
+    <label class="checkline">
+      <input type="checkbox" id="attest-box">
+      <span>I will only use NetWatch to track property I own, and I accept responsibility
+            for complying with the laws where I live.</span>
+    </label>
+    <button id="attest-go" class="btn primary" disabled>Continue</button>
+  </div>
+</div>
+
+<!-- ───────────────────────────── main shell ─────────────────────────────── -->
+<div id="shell" class="shell hidden">
+  <aside class="sidebar">
+    <div class="brand"><span class="mark"></span><span class="wordmark">Net<b>Watch</b></span></div>
+
+    <div class="side-head">
+      <span>Devices</span>
+      <button id="add-device" class="icon-btn" title="Add a tag" aria-label="Add a tag">+</button>
+    </div>
+
+    <div id="device-list" class="device-list">
+      <p class="empty">No devices yet</p>
+    </div>
+
+    <div class="side-actions">
+      <button id="sync-all" class="btn ghost block">Sync all</button>
+      <button id="flash-open" class="btn ghost block">Flash a board</button>
+    </div>
+
+    <div class="side-foot">
+      <button id="login-btn" class="foot-btn"><span class="ic">→]</span><span id="login-label">Login</span></button>
+      <button id="bridge-btn" class="foot-btn"><span class="ic">⇄</span>ATAK bridge</button>
+      <button id="about-btn" class="foot-btn"><span class="ic">◍</span>About</button>
+      <div class="copy">NetWatch <span id="ver"></span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div id="map"></div>
+    <div id="map-toggle" class="map-fab" title="Switch map style">🗺</div>
+    <!-- Map data credit. OpenStreetMap is ODbL-licensed and requires
+         attribution, so it stays — collapsed behind (i) rather than a bar. -->
+    <button id="attrib-btn" class="attrib-btn" title="Map data credits"
+            aria-label="Map data credits">i</button>
+    <div id="attrib-box" class="attrib-box hidden"></div>
+    <div id="banner" class="banner hidden"></div>
+  </main>
+</div>
+
+<!-- ───────────────────────────── modals ─────────────────────────────────── -->
+<div id="modal-root" class="modal-root hidden">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-x" data-close aria-label="Close">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<div id="toasts" class="toasts"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
