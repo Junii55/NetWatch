@@ -1,0 +1,57 @@
+# Runs the tests that need no network and no Apple account.
+#
+# Deliberately NOT here:
+#   test_session.py  - provisions an anisette device against Apple's servers
+#   test_apple_login.py - needs a real password, typed by a human
+#   the PyInstaller build - needs Windows, Inno Setup and ~10 minutes
+#
+# So a green tick means the key-injection maths, the shipped firmware images and
+# the whole ATAK bridge are sound. It does not mean a release is good; see
+# docs/STATUS.md for what only hardware can prove.
+name: tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  offline:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        working-directory: desktop/app
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Key injection and image integrity
+        working-directory: desktop/app
+        run: python tests/test_keyinject.py
+
+      - name: Prebuilt firmware release gate
+        working-directory: desktop/app
+        run: python tests/test_prebuilt.py
+
+      - name: ATAK bridge, including key secrecy
+        working-directory: desktop/app
+        run: python tests/test_bridge.py
+
+  plugin-archive:
+    # The plugin cannot be compiled without the ATAK SDK, which is access
+    # restricted. What can be checked for free is that the submission archive is
+    # well formed - one root folder, POSIX separators, nothing missing - because
+    # getting that wrong is only discovered after an upload.
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and validate the TAK submission archive
+        shell: pwsh
+        run: ./tools/make-plugin-zip.ps1 -OutDir ${{ runner.temp }}
