@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# PyInstaller / packaging output
+desktop/build/
+desktop/dist/
+*.spec.bak
+
+# Generated at build time by packaging/netwatch.spec — the edition is baked into
+# each binary, so this file must never be committed or the two editions fight.
+desktop/app/netwatch/_build_edition.py
+
+# Inno Setup
+desktop/packaging/Output/
+
+# Gradle / Android
+NetWatch-TAK/.gradle/
+NetWatch-TAK/build/
+NetWatch-TAK/app/build/
+NetWatch-TAK/local.properties
+NetWatch-TAK/.takdev/
+NetWatch-TAK/app/proguard-gradle-repackage.txt
+*.apk
+*.aab
+*.jks
+*.keystore
+
+# TAK pipeline output — scan reports and signed artefacts come back per
+# submission and do not belong in the repo
+tak-builds/
+*.fpr
+dependency-check-report.html
+
+# Anything that could carry real keys or sessions. A NetWatch export holds tag
+# private keys; losing control of one is unrecoverable.
+*.db
+*.db-journal
+netwatch.log
+netwatch-export*.json
+secret.key
+anisette-*.bin
+
+# Editors / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
